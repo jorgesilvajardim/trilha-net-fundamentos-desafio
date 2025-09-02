@@ -17,7 +17,7 @@ namespace DesafioFundamentos.Models
             // Add placa a lista de veiculos
             Console.WriteLine("Digite a placa do veículo para estacionar:");
             string? placa = Console.ReadLine();
-            veiculos.Add(placa);
+            veiculos.Add(placa!);
         }
 
         public void RemoverVeiculo()
@@ -26,7 +26,7 @@ namespace DesafioFundamentos.Models
             string? placa = Console.ReadLine();
 
             // Verifica se o veículo existe
-            if (veiculos.Any(x => x.ToUpper() == placa.ToUpper()))
+            if (veiculos.Any(x => x.ToUpper() == placa?.ToUpper()))
             {
                 Console.WriteLine("Digite a quantidade de horas que o veículo permaneceu estacionado:");
                 int horas = 0;
@@ -37,7 +37,7 @@ namespace DesafioFundamentos.Models
                 valorTotal = precoInicial + precoPorHora * horas;
 
                 // Remove o veiculo da lista 
-                veiculos.Remove(placa);
+                veiculos.Remove(placa!);
 
                 Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: R$ {valorTotal}");
             }
